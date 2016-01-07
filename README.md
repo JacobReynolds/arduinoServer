@@ -17,5 +17,5 @@ Then plug it into your computer and "cd arduinoApp/arduinoCode" and download lig
 
 To run, download the files and 'cd arduinoApp'.<br>
 In one terminal window type "npm start" (you have to have npm installed)<br>
-In another terminal type "./server 7001" (check arduinoApp/routes/index.js the port variable to verify)<br>
+In another terminal type "cd arduinoApp/homeServer" and run "./server 7001" (check arduinoApp/routes/index.js the port variable to verify)<br>
 Then go to "localhost:3000" in a web browser.

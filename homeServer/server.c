@@ -70,8 +70,8 @@ void connectToClient(int argc, char *argv[]) {
             sleep(1);
             fclose(file);
         }
+        close(sockfd);
     }
-     close(sockfd);
 }
 
 int main(int argc, char *argv[])

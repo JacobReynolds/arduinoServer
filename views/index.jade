@@ -3,4 +3,7 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  button(onclick='test()') Test Button
+  h3(style="display:inline; margin-right: 5px;") port number
+  input#port
+  br
+  button(onclick='test()') Blink

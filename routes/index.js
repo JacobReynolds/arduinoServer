@@ -3,13 +3,13 @@ var router = express.Router();
 var net = require('net');
 
 var host = 'localhost';
-var port = 7001;
+var port = 7000;
 
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Jake Reynolds' });
+  res.render('index', { title: 'arduinoApp' });
 });
 
 function runClient() {
@@ -37,7 +37,8 @@ function runClient() {
 }
 
 router.post('/sendRequest', function (req, res, next) {
-	console.log('received message: ' + req.body.data);
+	console.log('received port no: ' + req.body.data);
+	port = req.body.data;
 	runClient();
 	res.end();
 })

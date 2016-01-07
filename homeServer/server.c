@@ -9,7 +9,7 @@
 #include <string.h>
 #include <strings.h>
 #include <stdlib.h>
-
+#include <fcntl.h>
 
 
 void connectToClient(int argc, char *argv[]) {
@@ -64,14 +64,17 @@ void connectToClient(int argc, char *argv[]) {
         if (n<0) error("ERROR reading from socket");
         if (strcmp(buffer, "1") == 0) {
             printf("client said: %s \n", buffer);
-            FILE *file;
-            file = fopen("/dev/ttyACM0", "w");
-            fprintf(file, "%d\r\n", 1);
+            int file;
+            file = open("/dev/ttyACM0", O_RDWR);
+            char str[2] = "1";
+            if(write(file, &str, 2) == -1) {
+                perror("perror output: ");
+            }
             sleep(1);
-            fclose(file);
+            close(file);
         }
-        close(sockfd);
     }
+        close(sockfd);
 }
 
 int main(int argc, char *argv[])
